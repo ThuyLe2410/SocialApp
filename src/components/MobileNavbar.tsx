@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import {
   Sheet,
   SheetContent,
+  SheetDescription,
   SheetHeader,
   SheetTitle,
   SheetTrigger,
@@ -22,8 +23,8 @@ import { useAuth,SignInButton, SignOutButton } from "@clerk/nextjs";
 
 export default function MobileNavbar() {
   const [showMobile, setShowMobile] = useState(false);
-  const isSignedIn = useAuth();
-  
+  const {isSignedIn} = useAuth();
+
   return (
     <div className="flex md:hidden items-center space-x-2">
       <ModeToggle />
@@ -38,6 +39,7 @@ export default function MobileNavbar() {
         <SheetContent side="right" className="w-[300px]">
           <SheetHeader>
             <SheetTitle>Menu</SheetTitle>
+            <SheetDescription></SheetDescription>
           </SheetHeader>
 
           <nav className="flex flex-col space-y-4 mt-6">
