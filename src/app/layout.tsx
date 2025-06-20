@@ -5,6 +5,8 @@ import { ThemeProvider } from "@/components/theme-provider";
 import Navbar from "@/components/Navbar";
 import { ClerkProvider } from "@clerk/nextjs";
 import Sidebar from "@/components/Sidebar";
+import {Toaster} from 'react-hot-toast';
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -35,8 +37,11 @@ export default function RootLayout({
             defaultTheme="system"
             enableSystem
             disableTransitionOnChange>
+
             <div className="min-h-screen">
+
               <Navbar />
+
               <main className="py-8">
                 {/* container to center the content */}
                 <div className="max-w-7xl mx-auto px-4">
@@ -52,6 +57,9 @@ export default function RootLayout({
                 </div>
               </main>
             </div>
+
+            <Toaster />
+
           </ThemeProvider>
         </body>
       </html>
