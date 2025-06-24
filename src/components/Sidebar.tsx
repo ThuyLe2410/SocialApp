@@ -10,7 +10,9 @@ import { Separator } from "@radix-ui/react-separator";
 import { LinkIcon, MapPinIcon } from "lucide-react";
 
 export default async function Sidebar() {
+
   const authUser = await currentUser();
+  console.log("authUser", authUser)
   if (!authUser) return <UnAuthenticatedSidebar />;
   const user = await getUserByClerkId(authUser.id);
   console.log("user", user);
@@ -44,7 +46,7 @@ export default async function Sidebar() {
               <div className="flex justify-between">
                 <div>
                   <p className="font-medium">{user._count.following}</p>
-                  <p className="text-xs text-muted-foreground">Followers</p>
+                  <p className="text-xs text-muted-foreground">Following</p>
                 </div>
                   <Separator orientation="vertical" />
                   <div>
