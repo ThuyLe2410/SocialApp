@@ -26,7 +26,6 @@ export default async function Navbar() {
           <MobileNavbar />
         </div>
       </div>
-      Navbar
     </nav>
   );
 }

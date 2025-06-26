@@ -3,7 +3,6 @@ import { useState } from "react";
 import { createComment, getPosts, toggleLike } from "@/actions/post.action";
 import { Card, CardContent } from "./ui/card";
 import Link from "next/link";
-import Image from "next/image";
 import { Avatar, AvatarImage } from "./ui/avatar";
 import { formatDistanceToNow } from "date-fns";
 import { SignInButton, useUser } from "@clerk/nextjs";
@@ -104,6 +103,7 @@ export default function PostCard({
                   <div>
                     <Link href="">{post.author.username}</Link>
                     <span>.</span>
+                    {" "}
                     <span>
                       {formatDistanceToNow(new Date(post.createdAt))} ago
                     </span>
@@ -123,7 +123,7 @@ export default function PostCard({
           {/* POST IMAGE */}
           {post.image && (
             <div className="rounded-lg overflow-hidden">
-              <Image
+              <img
                 src={post.image}
                 alt="Post content"
                 className="w-full h-auto object-cover"

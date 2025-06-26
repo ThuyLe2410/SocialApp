@@ -65,7 +65,7 @@ export default async function Sidebar() {
 
                 <div className="flex items-center text-muted-foreground">
                     <LinkIcon className="w-4 h-4 mr-2 shrink-0"/>
-                    {user.website ? (<a href={`${user.website}`} className="hover:underline"></a>) : ("No website")}
+                    {user.website ? (<a href={`${user.website}`} className="hover:underline">{user.website}</a>) : ("No website")}
                 </div>
 
               </div>

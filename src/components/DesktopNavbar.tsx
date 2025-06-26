@@ -18,6 +18,7 @@ export default async function DesktopNavbar() {
           <span className="hidden lg:inline">Home</span>
         </Link>
       </Button>
+      
       {user ? (
         <>
           <Button variant="ghost" className="flex items-center gap-2" asChild>
