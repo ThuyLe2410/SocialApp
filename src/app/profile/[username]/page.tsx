@@ -7,12 +7,13 @@ import {
 import { notFound } from "next/navigation";
 import ProfilePageClient from "./ProfilePageClient";
 
-export async function generateMetaData({
+export async function generateMetadata({
   params,
 }: {
-  params: { username: string };
+  params: Promise<{ username: string }>;
 }) {
-  const user = await getProfileByUsername(params.username);
+  const username= (await params).username;
+  const user = await getProfileByUsername(username);
   if (!user) return;
   return {
     title: `${user.name ?? user.username}`,
@@ -21,12 +22,12 @@ export async function generateMetaData({
 }
 
 export default async function ProfilePage({
-  params,
+  params
 }: {
-  params: { username: string };
+  params: Promise<{ username: string }>;
 }) {
-  console.log("params", params);
-  const user = await getProfileByUsername(params.username);
+  const username= (await params).username;
+  const user = await getProfileByUsername(username);
   if (!user) notFound();
   const [posts, likedPosts, isCurrentUserFollowing] = await Promise.all([
     getUserPosts(user.id),
