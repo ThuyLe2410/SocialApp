@@ -10,7 +10,7 @@ export const ourFileRouter = {
   "postImage": f({
     image: {
       maxFileSize: "4MB",
-      maxFileCount: 1,
+      maxFileCount: 10,
     },
   })
     // Set permissions and file types for this FileRoute
